@@ -1,10 +1,33 @@
+let bagItems;
 onload();
  
 function onload(){
+    let bagItemStr= localStorage.getItem('bagItems');
+    bagItems= bagItemStr ? JSON.parse(bagItemStr) : [];
     displayElementsOfHomePage();
+    displayBagIcon();
+   
 }
+function addToBag(itemId){
+bagItems.push(itemId);
+localStorage.setItem('bagItems',JSON.stringify(bagItems));
+displayBagIcon();
+}
+
+function displayBagIcon(){
+    let bagItemElement = document.querySelector('.bag-item-count');
+    if(bagItems.length>0)
+    {   bagItemElement.style.visibility='visible';
+        bagItemElement.innerText=bagItems.length;}
+    else{bagItemElement.style.visibility='hidden';}
+      
+}
+
 function displayElementsOfHomePage(){
 let itemsContainerElement =document.querySelector(".items-container");
+if (itemsContainerElement==null){
+    return ;
+}
 let innerHTML='';
 items.forEach(item => {
     innerHTML+=`
@@ -18,7 +41,7 @@ items.forEach(item => {
             <span class="orginal-price">₹ ${item.original_price}</span>
             <span class="discount">(${item.discount_percentage}% OFF)</span>
         </div>
-        <button class="btn-add-bag">Add To Bag</button>
+        <button class="btn-add-bag" onclick="addToBag(${item.id})">Add To Bag</button>
     
     </div>`
     
