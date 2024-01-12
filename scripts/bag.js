@@ -13,8 +13,16 @@ function loadBagItemObjects(){
         }
     })
 }
+function removeFromBag(itemId){
+  // bagItemObjects.pop(bagItem);
+  bagItems= bagItems.filter(bagId => { bagId !== itemId });
+  localStorage.setItem('bagItems',JSON.stringify(bagItems));
+loadBagItemObjects()
+displayBagItems();
+displayBagIcon();
+}
 
-function generateItemHTML( item){
+function generateItemHTML(item){
     return `
     <div class="bag-item-container">
     <div class="item-left-part">
@@ -37,7 +45,7 @@ function generateItemHTML( item){
       </div>
     </div>
     
-    <div class="remove-from-cart">X</div>
+    <div class="remove-from-cart" onclick="removeFromBag(${item.id})">X</div>
     </div>`;
 }
 
