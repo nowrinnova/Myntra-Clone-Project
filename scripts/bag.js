@@ -62,39 +62,7 @@ function displayBagSummery(){
   </button>`
 }
 
-// function displayBagSummery(){
-//   let bagSummery= document.querySelector('.bag-summary');
-//   // let totalAmount=${}
-//   let innerHTML='';
-//   bagItemObjects.forEach(item => {
 
-//     innerHTML+=`<div class="bag-details-container">
-//   <div class="price-header">PRICE DETAILS (2 Items) </div>
-//   <div class="price-item">
-//     <span class="price-item-tag">Total MRP</span>
-//     <span class="price-item-value">Rs ${item.original_price}</span>
-//   </div>
-//   <div class="price-item">
-//     <span class="price-item-tag">Discount on MRP</span>
-//     <span class="price-item-value priceDetail-base-discount">-Rs${item.discount_percentage}</span>
-//   </div>
-//   <div class="price-item">
-//     <span class="price-item-tag">Convenience Fee</span>
-//     <span class="price-item-value">Rs 99</span>
-//   </div>
-//   <hr>
-//   <div class="price-footer">
-//     <span class="price-item-tag">Total Amount</span>
-//     <span class="price-item-value">Rs 1240</span>
-//   </div>
-// </div>
-// <button class="btn-place-order">
-//   <div class="css-xjhrni">PLACE ORDER</div>
-// </button>
-// `;
-// });
-//   bagSummery.innerHTML= innerHTML;
-// }
 function generateItemHTML(item){
     return `
     <div class="bag-item-container">
